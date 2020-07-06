@@ -19,6 +19,9 @@
 					<li>
 						<a href="#forensicNAND">Improving the Reliability of Chip-Off Forensic Analysis of NAND Flash Memory Devices</a>
 					</li>
+					<li>
+						<a href="#dataDeletion">Investigation of Data Deletion Vulnerabilities in NAND Flash Memory Based Storage</a>
+					</li>
 				</ul>
 			</p>
 		</div>
@@ -155,6 +158,176 @@
 						RBER increases with retention, but with read-retry method of reading the error decreases. But read retry modeA only reduces the error at high PE cycle counts. And most of the times it is not beneficial as it is not controllable and visible.
 					</p>
 
+				</div>
+				<hr>
+		<button type="button" class="collapsible"> <a name="dataDeletion"></a><i>Investigation of Data Deletion Vulnerabilities in NAND Flash Memory Based Storage</i></button>
+				<div class>
+					<p>
+						<ul>
+							<li>
+								The paper can be found at <a href="https://arxiv.org/pdf/2001.07424.pdf"> this link.</a>
+							</li>
+							<li>
+								NAND suffers from data security vulenrabilities.
+							</li>
+							<li>
+								This paper deals in unreliable deletion in commercial NAND memory.
+							</li>
+							<li>
+								Some observation of this research has led to 100% data recovery.
+							</li>
+							<li>
+								This paper makes four categories of reasons for deletion based vulnerabilities for NAND memory:
+								<ul>
+									<li>
+										Physics Based:
+										<ul>
+											<li>
+												Data deletion vulnerabilties is due to the storage in Flash being charge based.
+											</li>
+											<li>
+												During erase operation all the charge carriers may not be de-trapped. This leads to charge remanence post-erase operation.
+											</li>
+											<li>
+												These remenants charges can be detected using SEM, SPM microscopy techniques and using emperical models the previous state of flash cell can be predicted.
+											</li>
+										</ul>
+									</li>
+									Performance Based:
+									<ul>
+										<li>
+											Several performance optimization tricks lead to data deletion vulnerabilities.
+										</li>
+										<li>
+											Even partial programming and erase operation is sensed as complete programming and erase operation due to optimal placement of threshold voltage. This causes remanent charge effect as discussed above.
+										</li>
+										<li>
+											High retention of flash ensures that charge is trapped post-erase operation as well. This may enhance the probability that the information can be recovered even after a long time
+										</li>
+										<li>
+											Due to wear leveling, same physical address may be provided to different physical address. However, the previous written data may still be present.
+										</li>
+									</ul>
+									<li>
+										System Complexity Based:
+										<ul>
+											<li>
+												OS instead of deleting still has chance of recovering data. Even after deletion, data may still be in flash memory.
+											</li>
+											<li>
+												Software based recovery tools can be used to recover data using info in the metadata of the file. Even formatting the media does not ensure complete deletion.
+											</li>
+										</ul>
+									</li>
+									<li>
+										Intentional Reasons
+										<ul>
+											<li>
+												Backdoors and Trojans
+											</li>
+											<li>
+												Side Channel
+											</li>
+											<li>
+												Redundant Data
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								Data can be recovered from flash memory using different ways as below:
+								<ul>
+									<li>
+										Using software recovery tool
+									</li>
+									<li>
+										Using comprehensive embedded test env
+									</li>
+									<li>
+										by charge-charge constrast measurement of flash devices
+									</li>
+								</ul>
+							</li>
+							<li>
+								Basic attributes of files are present in the files or folders that vary based on the file system in use. Even record of deleted files are stored.
+							</li>
+							<li>
+								Scanning that a file is deleted and reading the MFT, Master File Table, data can be extracted.
+								<ul>
+									<li>
+										In NTFS, there is a special attribute for deleted files/folders
+									</li>
+									<li>
+										In FAT, ASCII 0xE5 is used to mark deleted files/folders.
+									</li>
+									<li>
+										The first 42 bytes in MFT contains file record header in which Flag field (2 Bytes) provides info about whether file is deleted or still in use. (if 1, means still in use)
+									</li>
+									<li>
+										MFT contains other informations as well.
+									</li>
+									<li>
+										Read http://www.ntfs.com/file-recovery-concepts.htm
+									</li>
+								</ul>
+							</li>
+							<li>
+								Experiments performed in commercial NAND Flash USB. OS and device vendors do not delete conclusively and do not reliably sanitize data was the conclusion.
+							</li>
+							<li>
+								Expt performed in Windows 10 and Linux Ubuntu 14.04
+							</li>
+							<li>
+								USB media formatted to both FAT32 and NTFS. 
+							</li>
+							<li>
+								<i>Recuva</i> and <i> EaseUS </i> recovery software used.
+							</li>
+							<li>
+								Commands explored were: <i>Shift+Delete</i> and <i>Format Option</i> in Windows while <i>rm -rf</i> in Linux and <i>shred</i> command.
+							</li>
+							<li>
+								Data were recovered successfull in all cases except <i>shred</i> in Linux.
+							</li>
+							<li>
+								Experiments performed in two settings:
+								<ul>
+									<li>
+										Dump Recovered Data to Another storage Media:
+										<ul>
+											<li>
+												Recovered Successfully
+											</li>
+											<li>
+												Deleted again using quick format option
+											</li>
+											<li>
+												data again recovered using recovery software using <i>deep scan</i>
+											</li>
+											<li>
+												Full format tried on recovered data
+											</li>
+											<li>
+												Data unable to recover, but because of the limitation of the recovery software used.
+											</li>
+										</ul>
+									</li>
+									<li>
+										Dump Recovered Data to Same Storage Media:
+										<ul>
+											<li>
+												Similar delete-recover-delete option tried
+											</li>
+											<li>
+												With each iteration, recovered data quality degraded.
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</p>
 				</div>
 				<hr>
 </p>
