@@ -54,7 +54,7 @@
 <p>Please follow the link below to jump to respective section:</p>
 
 <p>
-<ul><li><a href="#nvm_introduction">NVM Introduction</a></li><li><a href="#magnetic_disk">Magnetic Disks</a></li><li><a href="#sram">SRAM</a></li><li><a href="#dram">DRAM</a></li><li><a href="#fram">FRAM</a></li><li><a href="#rram">RRAM</a></li><li><a href="#flash">Flash Memory</a></li><li><a href="#mram">MRAM</a></li><li><a href="#pcm">PCM</a></li><li><a href="#optane">Optane</a></li><li><a href="#flash_security">Security Primitives in Flash Memory</a></li><li><a href="#sram_dram_security">Security Primitives in SRAM and DRAM</a></li><li><a href="#flash_puf">Flash PUFs</a></li><li><a href="#flash_sanitization_paper">Sanitization of Flash Memory</a></li><li><a href="#ssd_papers_study">SSD papers</a></li><li><a href="#file_system_study">Study of File Systems</a></li><li><a href="#other_study">Others</a></li>
+<ul><li><a href="#nvm_introduction">NVM Introduction</a></li><li><a href="#flash">Flash Memory</a></li><li><a href="#flash_security">Security Primitives in Flash Memory</a></li><li><a href="#flash_puf">Flash PUFs</a></li><li><a href="#flash_sanitization_paper">Sanitization of Flash Memory</a></li><li><a href="#ssd_papers_study">SSD papers</a></li><li><a href="#sram">SRAM</a></li><li><a href="#dram">DRAM</a></li><li><a href="#sram_dram_security">Security Primitives in SRAM and DRAM</a></li><li><a href="#fram">FRAM</a></li><li><a href="#rram">RRAM</a></li><li><a href="#mram">MRAM</a></li><li><a href="#pcm">PCM</a></li><li><a href="#optane">Optane</a></li><li><a href="#file_system_study">Study of File Systems</a></li><li><a href="#magnetic_disk">Magnetic Disks</a></li><li><a href="#other_study">Others</a></li>
 </ul>
 </p>
 <hr>
@@ -65,7 +65,7 @@
 
 <button type="button" class="collapsible"> <i>Please Click Here to Expand: NVM Introduction</i></button>
 
-<div class="content">
+<div>
 <p>
 	Memory forms an integral component of every computing systems. These are the parts of the computer that are used for storage and retrival of code and data that are essential for operation of computers. It is these retrival of code and data the makes these computers or computing systems perform all the tasks that we, the user, instruct them to do.
 </p>
@@ -113,101 +113,11 @@
 
 <hr>
 
-<h2 align="center"><a name="magnetic_disk">Magnetic Disks</a></h2>
-
-<button type="button" class="collapsible"> <i>Please Click Here to Expand: Magnetic Disks</i></button>
-
-<div class="content">
-<p>
-	
-</p>
-</div>
-
-<hr>
-
-<hr>
-
-<h2 align="center"><a name="sram">SRAM</a></h2>
-
-<button type="button" class="collapsible"> <i>Please Click Here to Expand: SRAM</i></button>
-
-<div class="content">
-<p>
-	
-</p>
-</div>
-
-<hr>
-
-<hr>
-
-<h2 align="center"><a name="dram">DRAM</a></h2>
-
-<button type="button" class="collapsible"> <i>Please Click Here to Expand: DRAM</i></button>
-
-<div class="content">
-<p>
-	
-</p>
-</div>
-
-<hr>
-
-<hr>
-
-<h2 align="center"><a name="fram">FRAM</a></h2>
-
-<button type="button" class="collapsible"> <i>Please Click Here to Expand: FRAM</i></button>
-
-<div class="content">
-<p>
-	<p>
-		FRAM or FeRAM is a class of memory that achieves non-volatility with a structure similar to DRAM. The capacitor in the DRAM memory has a dielectric layer that needs to periodic recharge to hold the charge, thus making DRAM a volatile memory while it is replaced by Ferroelectric material in FRAM. Presence of this Ferroelectric material (typically Lead Zirconate Titanate, PZT) makes FRAM non-volatile <a href="https://en.wikipedia.org/wiki/Ferroelectric_RAM">(ref)</a>.
-	</p>
-	<hr>
-	<p>
-		Writing to the FRAM is peformed in a process similar to storing charge in capacitors. A field is applied across the dielectric by charging the plates on either sides of it. This causes the atoms inside the dielectric to orient in "up" or "down" orientation, thus storing '1' or '0'. This change in polarity because of application of electric field produces a power-efficient binary switch <a href="https://www.cypress.com/products/f-ram-nonvolatile-ferroelectric-ram">(ref)</a>. The ferroelectric crystal and its orientation is not affected by magnetic field.
-	</p>
-	<hr>
-	<p>
-		<b>Destructive Read</b>: Reading in FRAM is done through the transistor in 1T-1C structure. The transistor forces the cell into a particular state. For example let us assume the transistor forces the cell into a '0' state. If the cell was already in '0' state, there is no change in the output lines. However, if the cells was in a '1' state, this reorientation of atoms in the dielectric causes a brief pulse of current in the output lines are the electrons are pushed out. Detection of this pulse indicates there was a '1' in FRAM cell. This process causes the original value to be overwritten, thus the reading process is desctructive and needs to be re-written.
-	</p>
-	<hr>
-	<p>
-		<b>Ferroelectric Property</b>: The dielectric or the ferroelectric material has a crystal structure. The PbZT crystal is organized in a <i>perovskite</i> structure where the Lead atoms are at the outermost layer and O atom inside them. The Z/Ti atom in the center form the cat-ion and has two equal and low-energy states. By the application of the electric field, the cat-ion will move in the direction of the field applied. This causes the low-energy state to be aligned in the direction of applied field while and conversely high-energy state will be aligned in the opposite direction. THe mnovement of cation causes either "up-polarization" or "down polarization" thus creating the two states <a href="https://www.cypress.com/file/46186/download">(ref)</a>.
-	</p>
-</p>
-</div>
-
-<hr>
-
-<hr>
-
-<h2 align="center"><a name="rram">RRAM</a></h2>
-
-<button type="button" class="collapsible"> <i>Please Click Here to Expand: RRAM</i></button>
-
-<div class="content">
-<p>
-	<p>
-			Resistive RAM or ReRAM works in the fashion similar to PCM <a href="https://en.wikipedia.org/wiki/Resistive_random-access_memory">(ref)</a>, i.e. by changing the resistance of the dielectric solid-state meterial. Here a metal oxide is sandwiched between two metal electrodes <a href="https://dl.acm.org/doi/pdf/10.1145/2463209.2488867">(ref)</a>. RRAM works by creating defects in the oxide layer to create a filmaent or a condictive path by the application of high voltage.
-		</p>
-		<hr>
-		<p>
-			The filament can be broken resulting in a high resistance state and can be formed to result in a low resistance state.
-		</p>
-</p>
-</div>
-
-<hr>
-
-<hr>
-
 <h2 align="center"><a name="flash">Flash Memory</a></h2>
 
 <button type="button" class="collapsible"> <i>Please Click Here to Expand: Flash Memory</i></button>
 
-<div class="content">
+<div>
 <p>
 	<button type="button" class="collapsible"><i>List of Papers Studied </i></button>
 		<div>
@@ -483,407 +393,11 @@
 
 <hr>
 
-<h2 align="center"><a name="mram">MRAM</a></h2>
-
-<button type="button" class="collapsible"> <i>Please Click Here to Expand: MRAM</i></button>
-
-<div class="content">
-<p>
-	<button type="button" class="collapsible"><i>Introduction </i></button>
-		<div>
-			<p>
-				MRAM stands for Magnetoresistive Random Access Memory. Unlike other conventional memory technology where information is stored in the form of presence or absence of charge particles or current flows, information in MRAM is stored by magnetic storage elements.
-			</p>
-			<p>
-				Structurally, MRAM consists of MRAM cells just like any other memory. Each MRAM cell contains two magnetic plates that are separated by an insulating layer. These plates are ferromagnetic in nature where one of the plates in permanent while the magnetization on other can be changed by influence of external applied field.
-			</p>
-			<p>
-				Based on the magnetization of the two plates being in parallel or antiparallel direction, the resistance of the MRAM cell is different. Measure of this electric resistance is the reading process. If the two plates have the same magnetic alignment, the logic state is said to be '1' while if the two plates have different magnetic alignment, the logic state is said to be '0'. (In parallel orientation, the likelihood of electron tunneling through the insulating layer is more than if they are in antiparallel orientation. Thus in parallel orientation, resistance offered is low and is read as 1 and vice versa.)
-			</p>
-			<p>
-				The two layers or plates can be referred to as (i) free layer, and (ii) fixed layer.
-			</p>
-		</div>
-		<hr>
-		<h3>Magnetic Tunnel Junction</h3>
-		<p>
-			A structure that consists of two layers of magnetic metals that is separated by an insulating layer in between them is the Magnetic Tunnel Junction. Here, the insulating layer between the magnetic layers is very thin that allows electrons to tunnel through one of the magnetic layers to another if a bias voltage is applied between the electrods.
-		</p>
-		<hr>
-		<h3>Tunnel Magnetoresistance</h3>
-		<p>
-			The current in the tunnel, tunneling current, can be changed based on the orientation of the magnetic plates relative to each other. This change in the current based on the magnetic alignment of the plates is called Tunnel Magnetoresistance.
-		</p>
-		<hr>
-		<h3>Toggle MRAM</h3>
-		<p>
-			The structure consists of two magnetic layers and an insulating layer in between. When a bias is applied, the electrons that are spin polarized by the magnetic layers tunnel across the dielectric. 
-		</p>
-		<hr>
-		<h3>STT MRAM</h3>
-		<p>
-			A newer technique called Spin Torque Transfer MRAM that uses Spin Torque Transfer technology. Under the Spin Torque Transfer technology, an electric current that is unpolarized (unpolarized current contains 50% electrons in each orientation) is passed through the fixed layer. This causes the electric current to be spin polarized and thus creates spin-polarized current.
-		</p>
-		<p>
-			When this spin-polarized current is directed into the free layer, the angular momentum can be transferred to this layer. This changes the orientation of the free layer. Here the torque developed while changing the orientation of the current is transferred to the free layer. This creates parallel orientation between the fixed and free layer. If it is required to change the orientation from parallel to antiparallel, the current direction is reversed. Here, the electrons are sent from the free layer to the fixed layer; majority electrons pass to the fixed layer while a minority electrons are reflected; the reflected electrons transfers the angular momentum to the free layer thus changing the orientation to antiparallel. 
-		</p>
-		<hr>
-		<h3>Spin Orbit MRAM</h3>
-		<p>
-			SOT MRAM is a more recent kind of MRAM technology where an additional layer of heavy metal is attached to the free layer. When a current is passed through the heavy metal layer, a spin polarized current is created in direction perpendicular to the unpolarized current. This transfers its angular momentum to the free layer thus performing switching operation on free layer <a href="https://doi.org/10.1016/j.sysarc.2018.11.005">(ref)</a>. The basic principal is based on the idea that a charge current in a heavy metal creates a spin current in a transverse direction or Hall Effect <a href="10.1109/JXCDC.2017.2762699">(ref)</a>. While this is still a under-development technology, researcher at ETH Zurich have reported writing operations in the range of 100 picoseconds <a href="https://scitechdaily.com/next-generation-magnetic-memory-breakthrough-writing-data-in-under-a-nanosecond/">(ref)</a> and <a href="https://www.nature.com/articles/s41565-019-0607-7">(ref)</a>.
-		</p>
-		<hr>
-		<h3>Write Disturb in MRAM</h3>
-		<p>
-			Writing to the memory is performed by changing the magnetic orientation of the plate whose magnetization can be changed. Conventional method of writing requires substantial amount of current on the word and bit lines (the fields being perpendicular to each other). Another negative point of MRAM is the induced field might effect multiple cells, thus limiting the scaling below 100nm <a href="https://doi.org/10.1016/j.mattod.2017.07.007">(ref)</a>. This problem where the field overlaps multiple cells causes <b>write disturb</b> in MRAM.
-		</p>
-		<hr>
-</p>
-</div>
-
-<hr>
-
-<hr>
-
-<h2 align="center"><a name="pcm">PCM</a></h2>
-
-<button type="button" class="collapsible"> <i>Please Click Here to Expand: PCM</i></button>
-
-<div class="content">
-<p>
-	<p>
-			Phase Change Memories(PCM) utilize the unique propoerty of some material to remain in multiple states as the basics of information storage. Since the change induced in the state remain until the state is again changed to some other state, or reverted back, the storage is non-volatile.
-		</p>
-		<hr>
-		<p>
-			The material that is commonly used is <i>Chalcogenide glass</i>, which can stay in amorphous as well as crystalline solid state. In older generation of PRAM, the state of the Chalcogenide glass was changed by production of heat by passing current through a heating element. This heating element is made of TiN, and was used to change the state of the glass to amorphous solid state by quick application (heated over 600 celcuis). Holding the heat for some time in the crystallization temperature range (cooled) would switch the state back to the crystalline state. Alternative technologies for changing states using laser have been proposed in research <a href="https://doi.org/10.1038/nnano.2011.96">(ref)</a>.
-		</p>
-		<hr>
-		<p>
-			Amorphous state offers more resistance and thus represents a binary 0 state while crystalline state represents a binary 1 state.
-		</p>
-		<hr>
-		<p>
-			The material used in the PCM can exhibit multiple intermediate states between the amorphous and crystalline solid state. This allows for multiple bits storage in a single cell of the PCM. Intel and ST Microelectronis are currently working on a design with four states, two of which are partially crystalline state in addition to the previous two states. <a href="https://en.wikipedia.org/wiki/Phase-change_memory">(ref)</a>.
-		</p>
-		<hr>
-		<p>
-			PRAMs are highly temperature sensitive as data can be lost with application of high temperature. However, they offer fast write times and have an endurance of about 100 million write cycles.
-		</p>
-</p>
-</div>
-
-<hr>
-
-<hr>
-
-<h2 align="center"><a name="optane">Optane</a></h2>
-
-<button type="button" class="collapsible"> <i>Please Click Here to Expand: Optane</i></button>
-
-<div class="content">
-<p>
-	<button type="button" class="collapsible"><i>List of Papers Studied </i></button>
-		<div>
-			<p>
-				Following are the papers studied:
-				<ul>
-					<li>
-						<a href="#3dxpwiki">3D X Point From Wikipedia</a>
-					</li>
-					<li>
-						<a href="#optaneperformance">Platform Storage Performance With 3D XPoint Technology</a>
-					</li>
-					<li>
-						<a href="#optaneevolution">Early Evaluation of Intel Optane Non-VolatileMemory with HPC I/O Workloads</a>
-					</li>
-					<li>
-						<a href="#optanecontract">Towards an Unwritten Contract of Intel Optane SSD</a>
-					</li>
-				</ul>
-			</p>	
-		</div>
-		<hr>
-
-		<button type="button" class="collapsible"> <a name="3dxpwiki">3D X Point From Wikipedia</a></button>
-		<div class="content">
-			<p>
-				<ul>
-					<li>
-						The file can be found at <a href="https://en.wikipedia.org/wiki/3D_XPoint">this link</a>
-					</li>
-					<li>
-						NVM technology developed by Intel and Micron. Available under name Optane by Intel and Quantx by Micron.
-					</li>
-					<li>
-						Bit storage is based on change of bulk resistance. But differs from other PCMs in that it uses chalcogenide materials for both selector and storage parts. (3DXPoint is thought to be a subset of ReRAM also)
-					</li>
-					<li>
-						Full technical detail is not revealed by Intel or Micron. But it has been stated to use electrical resistance and is not based on electrons (like flash etc)
-					</li>
-				</ul>
-			</p>
-		</div>
-		<hr>
-
-		<button type="button" class="collapsible"> <a name="optaneperformance">Platform Storage Performance With 3D XPoint Technology</a></button>
-		<div class="content">
-			<p>
-				<ul>
-					<li>
-						The file can be found at <a href="https://ieeexplore.ieee.org/document/8003284">this link</a>
-					</li>
-					<li>
-						This paper reviews the potentialities on computing introduced by the 3-D XPoint technology in changing the memory-storage hierarchy.
-					</li>
-					<li>
-						Work on 3DXPoint started in 2008.
-					</li>
-					<li>
-						Three use cases of 3D X Point:
-						<ul>
-							<li>
-								Storage: disk operation
-							</li>
-							<li>
-								DRAM extension:
-							</li>
-							<li>
-								Persistant Memory:
-							</li>
-						</ul>
-					</li>
-					<li>
-						read later
-					</li>
-				</ul>
-			</p>
-		</div>
-		<hr>
-
-		<button type="button" class="collapsible"> <a name="optaneevolution">Early Evaluation of Intel Optane Non-VolatileMemory with HPC I/O Workloads</a></button>
-		<div class="content">
-			<p>
-				<ul>
-					<li>
-						The file can be found at <a href="https://arxiv.org/pdf/1708.02199.pdf">this link</a>
-					</li>
-				</ul>
-			</p>
-		</div>
-		<hr>
-
-		<button type="button" class="collapsible"> <a name="optanecontract">Towards an Unwritten Contract of Intel Optane SSD</a></button>
-		<div class="content">
-			<p>
-				<ul>
-					<li>
-						The file can be found at <a href="https://research.cs.wisc.edu/adsl/Publications/hotstorage-contract19.pdf"> this link</a>
-					</li>
-					<li>
-						This paper describes Optane as well as formalized an unwritten contract of the Optane SSD violating which will result in 11x worse read latency and limited throughput.
-					</li>
-					<li>
-						Optane is Intel's 3D X Point memory with Micron.
-					</li>
-					<li>
-						It is available in various form factors including as a caching layer between the DRAM and block-device (as Optane memory), as a block device itself (as Optane SSD) and Optane DC Persistent Memory.
-					</li>
-					<li>
-						Of all the above, Optane SSD is the most cost effective and widely available option.
-					</li>
-					<li>
-						Following are the six (seven) rules for immediate performance of Optane SSD:
-						<ol>
-							<li>
-								Uses should issue small requests for low latency (>=4KB) and keep a small number of outstanding IOs (Access with Low Request Scale rune)
-							</li>
-							<li>
-								Optane SSD should not consider sequential workloads unlike HDD/Flash SSDs. (Random Access is OK)
-							</li>
-							<li>
-								Avoid parallel access to a single chunk to avoid contention among requests (Avoid Crowded Access rule)
-							</li>
-							<li>
-								Control the overall load of both reads and writes to control for optimal latency.
-							</li>
-							<li>
-								Never issue request for less than 4KB to exploit bandwidth of Optane SSD
-							</li>
-							<li>
-								Requests issued to Optane SSD should align to eight sectors for best latency.
-							</li>
-							<li>
-								When serving sustained workloads, there is no cost of garbage collection in Optane SSD. (Forget garbage collection)
-							</li>
-						</ol>
-					</li>
-				</ul>
-				<ol>
-					<li>
-						Access with Low Request Scale:
-						<ul>
-							<li>
-								Optane claimed to be upto 1000x faster than SSDs. But is it?
-							</li>
-							<li>
-								Optane SSD users should issue small requests and maintain small number of outstanding IOs.
-							</li>
-							<li>
-								Needed to extract low latency but also to exploit full bandwidth of Optane SSD
-							</li>
-							<li>
-								Variables of analysis are (i) request size and (ii) queue depth. Analysis of read and writes are performed.
-							</li>
-							<li>
-								For read operation, large request size and large queue depth  does not work better with optane SSD.
-							</li>
-							<li>
-								For write operations, they are almost comparable in all the cases while optane still being poor for large request size and large queue depth.
-							</li>
-							<li>
-								Optane internally uses RAID like organization of memory dies.
-							</li>
-							<li>
-								The interleaving degree (number of channels) of the Optane and SSD are examined through experiments (ref 18 and 19) and found out to be 7 and 128 respectively. The info of 7 channels is also found in hardware description ( ref 3).
-							</li>
-							<li>
-								This shows Optane has limited internal parallelism.
-							</li>
-							<li>
-								The limited parallelism is one reason that Optane performs better with small number of queue depth.
-							</li>
-						</ul>
-					</li>
-					<li>
-						Random Access is OK
-						<ul>
-							<li>
-								In SSD and HDD, better performance is seen with sequential access than random access. But, Optane is random access block device.
-							</li>
-							<li>
-								Experiments were performed for this for both SSD and Optane based system to prove.
-							</li>
-							<li>
-								Flash SSD performs better on sequential while Optane has comparable performance for read operations.
-							</li>
-							<li>
-								For smaller sized requests, Optane actually favors random writes over sequential writes. Similarly, flash SSD favors sequential writes only for small request size while in other cases, they are comparable.
-							</li>
-							<li>
-								Optane prefers random access because of the ability to perform in-place updates in 3D X Point memory. In Optane, there is no difference in address translation cost for random versus sequential workloads.
-							</li>
-						</ul>
-					</li>
-					<li>
-						Avoided Crowded Accesses
-						<ul>
-							<li>
-								The client should not issue parallel access to a single chunk in Optane based system because Optane SSD contains shared resources.
-							</li>
-							<li>
-								Experiments performed to study the performance by issuing parallel requests for different sector within same chunk.
-							</li>
-							<li>
-								Latency increases with increase in queue depth.
-							</li>
-						</ul>
-					</li>
-					<li>
-						Control Overall Load
-						<ul>
-							<li>
-								For optimal latency in Optane SSD, client must control overall load of both reads and writes
-							</li>
-							<li>
-								Observation derived from performance of Optane serving mixed reads and writes. In the experiment, we issue random 4KB requests, varying the percentageof writes from 0% to 100%, with QD= 64 (large enough toachieve full throughput for both Optane SSD and Flash SSD).
-							</li>
-							<li>
-								In Optane, reads and writes are treated equally. Latency plot overlaps for the plots with different ratio of writes/total access.
-							</li>
-							<li>
-								Latency was not a function of writes vs reads, but is dependent upon other factors of overall load.
-							</li>
-							<li>
-								For flash SSD, write operation increases the latency.
-							</li>
-						</ul>
-					</li>
-					<li>
-						Avoid Tiny Accesses
-						<ul>
-							<li>
-								Client must not issue less than 4KB request.
-							</li>
-							<li>
-								Latency might be same for small requests but for maximizing throughput it is better to issue 4KB request.
-							</li>
-						</ul>
-					</li>
-					<li>
-						Issue 4KB Aligned Requests
-						<ul>
-							<li>
-								For best latency, request should be aligned to 8 sectors that is 4KB.
-							</li>
-							<li>
-								In the experiment,we measure the latency of individual read requests (QD= 1);each read is issued to a position A+offset, where A is a random position aligned to 32KB and offset is a 512-byte sector within that 32KB.
-							</li>
-							<li>
-								A periodic latency observation is made which shows Optane favor aligned requests.
-							</li>
-							<li>
-								Best is when request are aligned to 8 sectors
-							</li>
-						</ul>
-					</li>
-					<li>
-						Forget Garbage Collection
-						<ul>
-							<li>
-								No need to worry about garbage collection of Optane
-							</li>
-							<li>
-								In Flash SSDs, after the device is full, any further writes is slow because it triggers garbage collection. But the write latency foe Optane is sustained which shows garbage collection has no cost.
-							</li>
-							<li>
-								Optane SSD has LBA_based mapping. I have to study this myself later on.
-							</li>
-							<li>
-								Flash performs log-structured based file system thus the throughput pattern occurs when we read according to written order.
-							</li>
-						</ul>
-					</li>
-				</ol>
-			</p>
-		</div>
-		<hr>
-</p>
-</div>
-
-<hr>
-
-<hr>
-
 <h2 align="center"><a name="flash_security">Security Primitives in Flash Memory</a></h2>
 
 <button type="button" class="collapsible"> <i>Please Click Here to Expand: Security Primitives in Flash Memory</i></button>
 
-<div class="content">
-<p>
-	
-</p>
-</div>
-
-<hr>
-
-<hr>
-
-<h2 align="center"><a name="sram_dram_security">Security Primitives in SRAM and DRAM</a></h2>
-
-<button type="button" class="collapsible"> <i>Please Click Here to Expand: Security Primitives in SRAM and DRAM</i></button>
-
-<div class="content">
+<div>
 <p>
 	
 </p>
@@ -897,7 +411,7 @@
 
 <button type="button" class="collapsible"> <i>Please Click Here to Expand: Flash PUFs</i></button>
 
-<div class="content">
+<div>
 <p>
 	<p>
 		The concept presented here in bullets are presented from the paper <a href="https://spqrlab1.github.io/papers/holcomb_PUFs_date14.pdf">PUFs at a Glance</a>
@@ -1407,7 +921,7 @@
 
 <button type="button" class="collapsible"> <i>Please Click Here to Expand: Sanitization of Flash Memory</i></button>
 
-<div class="content">
+<div>
 <p>
 	<button type="button" class="collapsible"> <i>List of sources</i></button>
 		<div >
@@ -1751,7 +1265,7 @@
 
 <button type="button" class="collapsible"> <i>Please Click Here to Expand: SSD papers</i></button>
 
-<div class="content">
+<div>
 <p>
 	<button type="button" class="collapsible"> <i>List of Papers Studied</i></button>
 			<p>
@@ -1822,11 +1336,483 @@
 
 <hr>
 
+<h2 align="center"><a name="sram">SRAM</a></h2>
+
+<button type="button" class="collapsible"> <i>Please Click Here to Expand: SRAM</i></button>
+
+<div>
+<p>
+	
+</p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2 align="center"><a name="dram">DRAM</a></h2>
+
+<button type="button" class="collapsible"> <i>Please Click Here to Expand: DRAM</i></button>
+
+<div>
+<p>
+	
+</p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2 align="center"><a name="sram_dram_security">Security Primitives in SRAM and DRAM</a></h2>
+
+<button type="button" class="collapsible"> <i>Please Click Here to Expand: Security Primitives in SRAM and DRAM</i></button>
+
+<div>
+<p>
+	
+</p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2 align="center"><a name="fram">FRAM</a></h2>
+
+<button type="button" class="collapsible"> <i>Please Click Here to Expand: FRAM</i></button>
+
+<div>
+<p>
+	<p>
+		FRAM or FeRAM is a class of memory that achieves non-volatility with a structure similar to DRAM. The capacitor in the DRAM memory has a dielectric layer that needs to periodic recharge to hold the charge, thus making DRAM a volatile memory while it is replaced by Ferroelectric material in FRAM. Presence of this Ferroelectric material (typically Lead Zirconate Titanate, PZT) makes FRAM non-volatile <a href="https://en.wikipedia.org/wiki/Ferroelectric_RAM">(ref)</a>.
+	</p>
+	<hr>
+	<p>
+		Writing to the FRAM is peformed in a process similar to storing charge in capacitors. A field is applied across the dielectric by charging the plates on either sides of it. This causes the atoms inside the dielectric to orient in "up" or "down" orientation, thus storing '1' or '0'. This change in polarity because of application of electric field produces a power-efficient binary switch <a href="https://www.cypress.com/products/f-ram-nonvolatile-ferroelectric-ram">(ref)</a>. The ferroelectric crystal and its orientation is not affected by magnetic field.
+	</p>
+	<hr>
+	<p>
+		<b>Destructive Read</b>: Reading in FRAM is done through the transistor in 1T-1C structure. The transistor forces the cell into a particular state. For example let us assume the transistor forces the cell into a '0' state. If the cell was already in '0' state, there is no change in the output lines. However, if the cells was in a '1' state, this reorientation of atoms in the dielectric causes a brief pulse of current in the output lines are the electrons are pushed out. Detection of this pulse indicates there was a '1' in FRAM cell. This process causes the original value to be overwritten, thus the reading process is desctructive and needs to be re-written.
+	</p>
+	<hr>
+	<p>
+		<b>Ferroelectric Property</b>: The dielectric or the ferroelectric material has a crystal structure. The PbZT crystal is organized in a <i>perovskite</i> structure where the Lead atoms are at the outermost layer and O atom inside them. The Z/Ti atom in the center form the cat-ion and has two equal and low-energy states. By the application of the electric field, the cat-ion will move in the direction of the field applied. This causes the low-energy state to be aligned in the direction of applied field while and conversely high-energy state will be aligned in the opposite direction. THe mnovement of cation causes either "up-polarization" or "down polarization" thus creating the two states <a href="https://www.cypress.com/file/46186/download">(ref)</a>.
+	</p>
+</p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2 align="center"><a name="rram">RRAM</a></h2>
+
+<button type="button" class="collapsible"> <i>Please Click Here to Expand: RRAM</i></button>
+
+<div>
+<p>
+	<p>
+			Resistive RAM or ReRAM works in the fashion similar to PCM <a href="https://en.wikipedia.org/wiki/Resistive_random-access_memory">(ref)</a>, i.e. by changing the resistance of the dielectric solid-state meterial. Here a metal oxide is sandwiched between two metal electrodes <a href="https://dl.acm.org/doi/pdf/10.1145/2463209.2488867">(ref)</a>. RRAM works by creating defects in the oxide layer to create a filmaent or a condictive path by the application of high voltage.
+		</p>
+		<hr>
+		<p>
+			The filament can be broken resulting in a high resistance state and can be formed to result in a low resistance state.
+		</p>
+</p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2 align="center"><a name="mram">MRAM</a></h2>
+
+<button type="button" class="collapsible"> <i>Please Click Here to Expand: MRAM</i></button>
+
+<div>
+<p>
+	<button type="button" class="collapsible"><i>Introduction </i></button>
+		<div>
+			<p>
+				MRAM stands for Magnetoresistive Random Access Memory. Unlike other conventional memory technology where information is stored in the form of presence or absence of charge particles or current flows, information in MRAM is stored by magnetic storage elements.
+			</p>
+			<p>
+				Structurally, MRAM consists of MRAM cells just like any other memory. Each MRAM cell contains two magnetic plates that are separated by an insulating layer. These plates are ferromagnetic in nature where one of the plates in permanent while the magnetization on other can be changed by influence of external applied field.
+			</p>
+			<p>
+				Based on the magnetization of the two plates being in parallel or antiparallel direction, the resistance of the MRAM cell is different. Measure of this electric resistance is the reading process. If the two plates have the same magnetic alignment, the logic state is said to be '1' while if the two plates have different magnetic alignment, the logic state is said to be '0'. (In parallel orientation, the likelihood of electron tunneling through the insulating layer is more than if they are in antiparallel orientation. Thus in parallel orientation, resistance offered is low and is read as 1 and vice versa.)
+			</p>
+			<p>
+				The two layers or plates can be referred to as (i) free layer, and (ii) fixed layer.
+			</p>
+		</div>
+		<hr>
+		<h3>Magnetic Tunnel Junction</h3>
+		<p>
+			A structure that consists of two layers of magnetic metals that is separated by an insulating layer in between them is the Magnetic Tunnel Junction. Here, the insulating layer between the magnetic layers is very thin that allows electrons to tunnel through one of the magnetic layers to another if a bias voltage is applied between the electrods.
+		</p>
+		<hr>
+		<h3>Tunnel Magnetoresistance</h3>
+		<p>
+			The current in the tunnel, tunneling current, can be changed based on the orientation of the magnetic plates relative to each other. This change in the current based on the magnetic alignment of the plates is called Tunnel Magnetoresistance.
+		</p>
+		<hr>
+		<h3>Toggle MRAM</h3>
+		<p>
+			The structure consists of two magnetic layers and an insulating layer in between. When a bias is applied, the electrons that are spin polarized by the magnetic layers tunnel across the dielectric. 
+		</p>
+		<hr>
+		<h3>STT MRAM</h3>
+		<p>
+			A newer technique called Spin Torque Transfer MRAM that uses Spin Torque Transfer technology. Under the Spin Torque Transfer technology, an electric current that is unpolarized (unpolarized current contains 50% electrons in each orientation) is passed through the fixed layer. This causes the electric current to be spin polarized and thus creates spin-polarized current.
+		</p>
+		<p>
+			When this spin-polarized current is directed into the free layer, the angular momentum can be transferred to this layer. This changes the orientation of the free layer. Here the torque developed while changing the orientation of the current is transferred to the free layer. This creates parallel orientation between the fixed and free layer. If it is required to change the orientation from parallel to antiparallel, the current direction is reversed. Here, the electrons are sent from the free layer to the fixed layer; majority electrons pass to the fixed layer while a minority electrons are reflected; the reflected electrons transfers the angular momentum to the free layer thus changing the orientation to antiparallel. 
+		</p>
+		<hr>
+		<h3>Spin Orbit MRAM</h3>
+		<p>
+			SOT MRAM is a more recent kind of MRAM technology where an additional layer of heavy metal is attached to the free layer. When a current is passed through the heavy metal layer, a spin polarized current is created in direction perpendicular to the unpolarized current. This transfers its angular momentum to the free layer thus performing switching operation on free layer <a href="https://doi.org/10.1016/j.sysarc.2018.11.005">(ref)</a>. The basic principal is based on the idea that a charge current in a heavy metal creates a spin current in a transverse direction or Hall Effect <a href="10.1109/JXCDC.2017.2762699">(ref)</a>. While this is still a under-development technology, researcher at ETH Zurich have reported writing operations in the range of 100 picoseconds <a href="https://scitechdaily.com/next-generation-magnetic-memory-breakthrough-writing-data-in-under-a-nanosecond/">(ref)</a> and <a href="https://www.nature.com/articles/s41565-019-0607-7">(ref)</a>.
+		</p>
+		<hr>
+		<h3>Write Disturb in MRAM</h3>
+		<p>
+			Writing to the memory is performed by changing the magnetic orientation of the plate whose magnetization can be changed. Conventional method of writing requires substantial amount of current on the word and bit lines (the fields being perpendicular to each other). Another negative point of MRAM is the induced field might effect multiple cells, thus limiting the scaling below 100nm <a href="https://doi.org/10.1016/j.mattod.2017.07.007">(ref)</a>. This problem where the field overlaps multiple cells causes <b>write disturb</b> in MRAM.
+		</p>
+		<hr>
+</p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2 align="center"><a name="pcm">PCM</a></h2>
+
+<button type="button" class="collapsible"> <i>Please Click Here to Expand: PCM</i></button>
+
+<div>
+<p>
+	<p>
+			Phase Change Memories(PCM) utilize the unique propoerty of some material to remain in multiple states as the basics of information storage. Since the change induced in the state remain until the state is again changed to some other state, or reverted back, the storage is non-volatile.
+		</p>
+		<hr>
+		<p>
+			The material that is commonly used is <i>Chalcogenide glass</i>, which can stay in amorphous as well as crystalline solid state. In older generation of PRAM, the state of the Chalcogenide glass was changed by production of heat by passing current through a heating element. This heating element is made of TiN, and was used to change the state of the glass to amorphous solid state by quick application (heated over 600 celcuis). Holding the heat for some time in the crystallization temperature range (cooled) would switch the state back to the crystalline state. Alternative technologies for changing states using laser have been proposed in research <a href="https://doi.org/10.1038/nnano.2011.96">(ref)</a>.
+		</p>
+		<hr>
+		<p>
+			Amorphous state offers more resistance and thus represents a binary 0 state while crystalline state represents a binary 1 state.
+		</p>
+		<hr>
+		<p>
+			The material used in the PCM can exhibit multiple intermediate states between the amorphous and crystalline solid state. This allows for multiple bits storage in a single cell of the PCM. Intel and ST Microelectronis are currently working on a design with four states, two of which are partially crystalline state in addition to the previous two states. <a href="https://en.wikipedia.org/wiki/Phase-change_memory">(ref)</a>.
+		</p>
+		<hr>
+		<p>
+			PRAMs are highly temperature sensitive as data can be lost with application of high temperature. However, they offer fast write times and have an endurance of about 100 million write cycles.
+		</p>
+</p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2 align="center"><a name="optane">Optane</a></h2>
+
+<button type="button" class="collapsible"> <i>Please Click Here to Expand: Optane</i></button>
+
+<div>
+<p>
+	<button type="button" class="collapsible"><i>List of Papers Studied </i></button>
+		<div>
+			<p>
+				Following are the papers studied:
+				<ul>
+					<li>
+						<a href="#3dxpwiki">3D X Point From Wikipedia</a>
+					</li>
+					<li>
+						<a href="#optaneperformance">Platform Storage Performance With 3D XPoint Technology</a>
+					</li>
+					<li>
+						<a href="#optaneevolution">Early Evaluation of Intel Optane Non-VolatileMemory with HPC I/O Workloads</a>
+					</li>
+					<li>
+						<a href="#optanecontract">Towards an Unwritten Contract of Intel Optane SSD</a>
+					</li>
+				</ul>
+			</p>	
+		</div>
+		<hr>
+
+		<button type="button" class="collapsible"> <a name="3dxpwiki">3D X Point From Wikipedia</a></button>
+		<div class="content">
+			<p>
+				<ul>
+					<li>
+						The file can be found at <a href="https://en.wikipedia.org/wiki/3D_XPoint">this link</a>
+					</li>
+					<li>
+						NVM technology developed by Intel and Micron. Available under name Optane by Intel and Quantx by Micron.
+					</li>
+					<li>
+						Bit storage is based on change of bulk resistance. But differs from other PCMs in that it uses chalcogenide materials for both selector and storage parts. (3DXPoint is thought to be a subset of ReRAM also)
+					</li>
+					<li>
+						Full technical detail is not revealed by Intel or Micron. But it has been stated to use electrical resistance and is not based on electrons (like flash etc)
+					</li>
+				</ul>
+			</p>
+		</div>
+		<hr>
+
+		<button type="button" class="collapsible"> <a name="optaneperformance">Platform Storage Performance With 3D XPoint Technology</a></button>
+		<div class="content">
+			<p>
+				<ul>
+					<li>
+						The file can be found at <a href="https://ieeexplore.ieee.org/document/8003284">this link</a>
+					</li>
+					<li>
+						This paper reviews the potentialities on computing introduced by the 3-D XPoint technology in changing the memory-storage hierarchy.
+					</li>
+					<li>
+						Work on 3DXPoint started in 2008.
+					</li>
+					<li>
+						Three use cases of 3D X Point:
+						<ul>
+							<li>
+								Storage: disk operation
+							</li>
+							<li>
+								DRAM extension:
+							</li>
+							<li>
+								Persistant Memory:
+							</li>
+						</ul>
+					</li>
+					<li>
+						read later
+					</li>
+				</ul>
+			</p>
+		</div>
+		<hr>
+
+		<button type="button" class="collapsible"> <a name="optaneevolution">Early Evaluation of Intel Optane Non-VolatileMemory with HPC I/O Workloads</a></button>
+		<div class="content">
+			<p>
+				<ul>
+					<li>
+						The file can be found at <a href="https://arxiv.org/pdf/1708.02199.pdf">this link</a>
+					</li>
+				</ul>
+			</p>
+		</div>
+		<hr>
+
+		<button type="button" class="collapsible"> <a name="optanecontract">Towards an Unwritten Contract of Intel Optane SSD</a></button>
+		<div class="content">
+			<p>
+				<ul>
+					<li>
+						The file can be found at <a href="https://research.cs.wisc.edu/adsl/Publications/hotstorage-contract19.pdf"> this link</a>
+					</li>
+					<li>
+						This paper describes Optane as well as formalized an unwritten contract of the Optane SSD violating which will result in 11x worse read latency and limited throughput.
+					</li>
+					<li>
+						Optane is Intel's 3D X Point memory with Micron.
+					</li>
+					<li>
+						It is available in various form factors including as a caching layer between the DRAM and block-device (as Optane memory), as a block device itself (as Optane SSD) and Optane DC Persistent Memory.
+					</li>
+					<li>
+						Of all the above, Optane SSD is the most cost effective and widely available option.
+					</li>
+					<li>
+						Following are the six (seven) rules for immediate performance of Optane SSD:
+						<ol>
+							<li>
+								Uses should issue small requests for low latency (>=4KB) and keep a small number of outstanding IOs (Access with Low Request Scale rune)
+							</li>
+							<li>
+								Optane SSD should not consider sequential workloads unlike HDD/Flash SSDs. (Random Access is OK)
+							</li>
+							<li>
+								Avoid parallel access to a single chunk to avoid contention among requests (Avoid Crowded Access rule)
+							</li>
+							<li>
+								Control the overall load of both reads and writes to control for optimal latency.
+							</li>
+							<li>
+								Never issue request for less than 4KB to exploit bandwidth of Optane SSD
+							</li>
+							<li>
+								Requests issued to Optane SSD should align to eight sectors for best latency.
+							</li>
+							<li>
+								When serving sustained workloads, there is no cost of garbage collection in Optane SSD. (Forget garbage collection)
+							</li>
+						</ol>
+					</li>
+				</ul>
+				<ol>
+					<li>
+						Access with Low Request Scale:
+						<ul>
+							<li>
+								Optane claimed to be upto 1000x faster than SSDs. But is it?
+							</li>
+							<li>
+								Optane SSD users should issue small requests and maintain small number of outstanding IOs.
+							</li>
+							<li>
+								Needed to extract low latency but also to exploit full bandwidth of Optane SSD
+							</li>
+							<li>
+								Variables of analysis are (i) request size and (ii) queue depth. Analysis of read and writes are performed.
+							</li>
+							<li>
+								For read operation, large request size and large queue depth  does not work better with optane SSD.
+							</li>
+							<li>
+								For write operations, they are almost comparable in all the cases while optane still being poor for large request size and large queue depth.
+							</li>
+							<li>
+								Optane internally uses RAID like organization of memory dies.
+							</li>
+							<li>
+								The interleaving degree (number of channels) of the Optane and SSD are examined through experiments (ref 18 and 19) and found out to be 7 and 128 respectively. The info of 7 channels is also found in hardware description ( ref 3).
+							</li>
+							<li>
+								This shows Optane has limited internal parallelism.
+							</li>
+							<li>
+								The limited parallelism is one reason that Optane performs better with small number of queue depth.
+							</li>
+						</ul>
+					</li>
+					<li>
+						Random Access is OK
+						<ul>
+							<li>
+								In SSD and HDD, better performance is seen with sequential access than random access. But, Optane is random access block device.
+							</li>
+							<li>
+								Experiments were performed for this for both SSD and Optane based system to prove.
+							</li>
+							<li>
+								Flash SSD performs better on sequential while Optane has comparable performance for read operations.
+							</li>
+							<li>
+								For smaller sized requests, Optane actually favors random writes over sequential writes. Similarly, flash SSD favors sequential writes only for small request size while in other cases, they are comparable.
+							</li>
+							<li>
+								Optane prefers random access because of the ability to perform in-place updates in 3D X Point memory. In Optane, there is no difference in address translation cost for random versus sequential workloads.
+							</li>
+						</ul>
+					</li>
+					<li>
+						Avoided Crowded Accesses
+						<ul>
+							<li>
+								The client should not issue parallel access to a single chunk in Optane based system because Optane SSD contains shared resources.
+							</li>
+							<li>
+								Experiments performed to study the performance by issuing parallel requests for different sector within same chunk.
+							</li>
+							<li>
+								Latency increases with increase in queue depth.
+							</li>
+						</ul>
+					</li>
+					<li>
+						Control Overall Load
+						<ul>
+							<li>
+								For optimal latency in Optane SSD, client must control overall load of both reads and writes
+							</li>
+							<li>
+								Observation derived from performance of Optane serving mixed reads and writes. In the experiment, we issue random 4KB requests, varying the percentageof writes from 0% to 100%, with QD= 64 (large enough toachieve full throughput for both Optane SSD and Flash SSD).
+							</li>
+							<li>
+								In Optane, reads and writes are treated equally. Latency plot overlaps for the plots with different ratio of writes/total access.
+							</li>
+							<li>
+								Latency was not a function of writes vs reads, but is dependent upon other factors of overall load.
+							</li>
+							<li>
+								For flash SSD, write operation increases the latency.
+							</li>
+						</ul>
+					</li>
+					<li>
+						Avoid Tiny Accesses
+						<ul>
+							<li>
+								Client must not issue less than 4KB request.
+							</li>
+							<li>
+								Latency might be same for small requests but for maximizing throughput it is better to issue 4KB request.
+							</li>
+						</ul>
+					</li>
+					<li>
+						Issue 4KB Aligned Requests
+						<ul>
+							<li>
+								For best latency, request should be aligned to 8 sectors that is 4KB.
+							</li>
+							<li>
+								In the experiment,we measure the latency of individual read requests (QD= 1);each read is issued to a position A+offset, where A is a random position aligned to 32KB and offset is a 512-byte sector within that 32KB.
+							</li>
+							<li>
+								A periodic latency observation is made which shows Optane favor aligned requests.
+							</li>
+							<li>
+								Best is when request are aligned to 8 sectors
+							</li>
+						</ul>
+					</li>
+					<li>
+						Forget Garbage Collection
+						<ul>
+							<li>
+								No need to worry about garbage collection of Optane
+							</li>
+							<li>
+								In Flash SSDs, after the device is full, any further writes is slow because it triggers garbage collection. But the write latency foe Optane is sustained which shows garbage collection has no cost.
+							</li>
+							<li>
+								Optane SSD has LBA_based mapping. I have to study this myself later on.
+							</li>
+							<li>
+								Flash performs log-structured based file system thus the throughput pattern occurs when we read according to written order.
+							</li>
+						</ul>
+					</li>
+				</ol>
+			</p>
+		</div>
+		<hr>
+</p>
+</div>
+
+<hr>
+
+<hr>
+
 <h2 align="center"><a name="file_system_study">Study of File Systems</a></h2>
 
 <button type="button" class="collapsible"> <i>Please Click Here to Expand: Study of File Systems</i></button>
 
-<div class="content">
+<div>
 <p>
 	<button type="button" class="collapsible"> <i>List of Papers Studied</i></button>
 			<p>
@@ -2012,11 +1998,25 @@
 
 <hr>
 
+<h2 align="center"><a name="magnetic_disk">Magnetic Disks</a></h2>
+
+<button type="button" class="collapsible"> <i>Please Click Here to Expand: Magnetic Disks</i></button>
+
+<div>
+<p>
+	
+</p>
+</div>
+
+<hr>
+
+<hr>
+
 <h2 align="center"><a name="other_study">Others</a></h2>
 
 <button type="button" class="collapsible"> <i>Please Click Here to Expand: Others</i></button>
 
-<div class="content">
+<div>
 <p>
 	<button type="button" class="collapsible"><a href="#otherstudy"></a> <i>List of Papers Studied </i></button>
 		<div>

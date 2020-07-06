@@ -25,42 +25,42 @@ DEBUG = True
 # following list only lists the other files in between
 file_names = [
 				'nvm_introduction.html',
-				'magnetic_disk.html',
-				'sram.html',
-				'dram.html',
-				'fram.html',
-				'rram.html',
 				'flash.html',
-				'mram.html',
-				'pcm.html',
-				'optane.html',
 				'flash_security.html',
-				'sram_dram_security.html',
 				'flash_puf.html',
 				'flash_sanitization_paper.html',
 				'ssd_papers_study.html',
+				'sram.html',
+				'dram.html',
+				'sram_dram_security.html',
+				'fram.html',
+				'rram.html',
+				'mram.html',
+				'pcm.html',
+				'optane.html',
 				'file_system_study.html',
+				'magnetic_disk.html',
 				'other_study.html'
 			]
 # please make sure that following list contains the descriptive name of each
 # .. of the files in above list
 file_names_desc = [
 				'NVM Introduction',
-				'Magnetic Disks',
-				'SRAM',
-				'DRAM',
-				'FRAM',
-				'RRAM',
 				'Flash Memory',
-				'MRAM',
-				'PCM',
-				'Optane',
 				'Security Primitives in Flash Memory',
-				'Security Primitives in SRAM and DRAM',
 				'Flash PUFs',
 				'Sanitization of Flash Memory',
 				'SSD papers',
+				'SRAM',
+				'DRAM',
+				'Security Primitives in SRAM and DRAM',
+				'FRAM',
+				'RRAM',
+				'MRAM',
+				'PCM',
+				'Optane',
 				'Study of File Systems',
+				'Magnetic Disks',
 				'Others'
 			]
 # check the length of the two lists above
@@ -170,7 +170,7 @@ for idx,each_file in enumerate(file_names):
 	f_out.write(f"\n<h2 align=\"center\"><a name=\"{anc_name}\">{file_names_desc[idx]}</a></h2>\n")
 	f_out.write(f"\n<button type=\"button\" class=\"collapsible\"> <i>Please Click Here to Expand: {file_names_desc[idx]}</i></button>\n")
 	# start div tag here
-	f_out.write(f"\n<div class=\"content\">\n")
+	f_out.write(f"\n<div>\n")
 	
 	# pull the contents from each of the files here
 	if not os.path.exists(each_file):
