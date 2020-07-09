@@ -136,6 +136,12 @@
 					<li>
 						<a href="#heatwatch3dnand">HeatWatch: Improving 3D NAND Flash Memory Device Reliability by Exploiting Self-Recovery and Temperature Awareness</a>
 					</li>
+					<li>
+						<a href="#improving3D">Improving 3D NAND Flash Memory Lifetime by Tolerating Early Retention Loss and Process Variation</a>
+					</li>
+					<li>
+						<a href="#mlcnandthresholdvoltage">Threshold Voltage Distribution in MLC NAND Flash Memory: Characterization, Analysis, and Modeling</a>
+					</li>
 				</ul>
 			</p>
 		</div>
@@ -386,6 +392,375 @@
 			</p>
 		</div>
 	<hr>
+
+
+	<button type="button" class="collapsible"> <a name="improving3D">Improving 3D NAND Flash Memory Lifetime by Tolerating Early Retention Loss and Process Variation</a></button>
+		<div class="content">
+			<p>
+				<ul>
+					<li>
+						Following is derived from the paper at <a href="https://arxiv.org/pdf/1807.05140.pdf">this link.</a>
+					</li>
+					<li>
+						3D NAND uses new flash cell design that vertically stacks dozens of silicon layers in a single chip.
+					</li>
+					<li>
+						Due to the difference in the physical orfanization at circuit level and structural level, there are three new error sources:
+						<ul>
+							<li>
+								Layer to layer process variation: Average error rate of each 3D stacked layer is significantly different. Raw bit error rate at the middle can be 6x that of top layer.
+							</li>
+							<li>
+								Early Retention Loss: A new phenomenon where the number of error due to charge leakage increases quickly within several hours (~3 hours) after programming, and then increases at a much lower rate.
+							</li>
+							<li>
+								Retention Interference: Rate at which charge leaks from a flash cell depends on the data value stored in the neighbouring cell. Charge leaks at a lower rate when the vertically adjacent cell is in a state that holds more charge.
+							</li>
+						</ul>
+					</li>
+					<li>
+						Different techniques are proposed for mitigation of various process variation  and early retention loss.
+						<ul>
+							<li>
+								LaVAR or Layer Variation Aware Reading: Reduces the effect of layer to layer process variation by fine-tuning the read reference voltage separately for each layer.
+							</li>
+							<li>
+								LI-RAID or Layer Interleaved Redundant Array of Independent Disks: Intelligently groups pages under the RAID error recovery technique using the info about layer to layer process variation
+							</li>
+							<li>
+								ReMAR or Retention Model Aware Reading:  Reduces the retention errors by tracking the retention time of data using the retention model (new model they propose) and adapts read reference voltage to data age
+							</li>
+							<li>
+								ReNAC or Retention Interference Aware Neighbour Cell Assisted Correction: Adapts the read reference voltage to the amount of retention interference a page has experienced in order to re-read the data after a read operation fails.
+							</li>
+						</ul>
+					</li>
+					<li>
+						These four techniques can be combined together to improve the flash reliability.
+					</li>
+					<li>
+						Most of the studies that have been done are based on planar NAND flash memory that are based on floating gate transistor. 3D NAND are however based on charge trap transistor where the charge is stored within an insulator. Here multiple layers of silicon are stacked together (typically 24 to 96 layers).Thus 3D NAND flash can be manufactured at higher technology node as 30-50 nm as compared to highly compact 10-15 nm for planar NAND.
+					</li>
+					<li>
+						Following are the errors that has been widely documented in planar NAND flash memory:
+						<ul>
+							<li>
+								Process Variation Error: Error due to fabrication process and lithography limitiations.
+							</li>
+							<li>
+								Retention Error: With time, charge leaks off the flash cell after being programmed. Refresh technique is required.
+							</li>
+							<li>
+								Write-Induced Error: Warout error.
+							</li>
+							<li>
+								Cell-to-Cell Interference Error: Increase in threshold voltage of a cell (and eventually RBER) when adjacent flash cell is programmed.
+							</li>
+							<li>
+								Read Induced Error: Application of pass through voltage during read operation causes weak programming effect. The values of flash cell may change in multiple read operations.
+							</li>
+						</ul>
+					</li>
+					<li>
+						However 3D NAND differs from planar NAND in many ways as following:
+						<ul>
+							<li>
+								Flash Cell Design:
+								<ul>
+									<li>
+										Planar memory uses storage of charge in FG, but 3D uses Charge Trap transistors.
+									</li>
+									<li>
+										In CT flash, a cylindrical substrate is between charge trap insulator layer that is radially wrapped inside control gate. 
+									</li>
+									<li>
+										Charge Trap layer stores the charge, but is insulator (as oppposed to FG).
+									</li>
+								</ul>
+							</li>
+							<li>
+								Chip Organization:
+								<ul>
+									<li>
+										BL in planar NAND connects (source and drain of) the flash cells from different pages in a block.
+									</li>
+									<li>
+										BL in 3D NAND, which is CT, connects one charge trap cell from each layer of the chip as cells are stacked on top of each other. All the cells in a single stack (z-axis) share the same charge trap insulator.
+									</li>
+									<li>
+										CG in the same layer are connected through a Word Line in Y-axis. The number of WLs in a block is proportional to the length (height) of BL.
+									</li>
+									<li>
+										Multiple blocks are aligned in X-axis to form a flash chip.
+									</li>
+								</ul>
+							</li>
+							<li>
+								Manufacturing Process Technnology:
+								<ul>
+									<li>
+										3D NAND uses much larger mnufacturing technology (30-50 nm) as compared to planar 3D NAND flash memory (10-15 nm).
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						They use read-retry command to fine-tune the reference voltage for each read operation. (refs 9 and 14). This changes the read reference voltage by a small step called <i>voltage step</i>.
+					</li>
+					<li>
+						Metrics are
+						<ul>
+							<li>
+								RBER: is the rate at which errors in the data before error correction.
+							</li>
+							<li>
+								Change in Threshold Voltage Distribution: How it changes with different sources of errors. They use read retry method to sweep over all the reference voltages to identify the threshold voltage (using techniques as in refs 14, 64 and 81).
+							</li>
+						</ul>
+					</li>
+					<li>
+						Layer to Layer Process Variation:
+						<ul>
+							<li>
+								The chips used have 30-40 layers and the observations are normalized to 100 layers for anonymity of the manufacturer. It is also not known from paper how they distinguish between flash cells in differet layers.
+							</li>
+							<li>
+								Variation exists in all three axis. However, most prominent is in the z-axis because of difficulty in stacking multiple layers in top of each other. 
+							</li>
+							<li>
+								Prior work has shown that no etching tech can are able to produce identical 3D NAND cells while punching through multiple stacked layers
+							</li>
+							<li>
+								For characterization, each pages in the blocks are programmed with some random data such that each page has faced 10K PE cycles. Then comparison of collective characteristics of flash cells in a layer is made with another layer. (Repeated in multiple chips)
+							</li>
+							<li>
+								The plot for number of errors in each layer of a 3D NAND flash cell (for MLC) while transitioning from ER<->P1, P1<->P2 and P2<->P3 is plotted while another plot showing error with in MSB and LSB pages are plotted.
+							</li>
+							<li>
+								Error for ER<->P1 is significantly large while the error for P1<->P2 is also large across layers. However error for P2<->P3 remain similar across layers. (This shows that ER threshold voltage varies significantly across layers)
+							</li>
+							<li>
+								MSP and LSB errors vary significantly across layers. <i>This is termed as layer-to-layer process variation.</i>
+							</li>
+							<li>
+								MSB errors are higher than LSB errors in most of the layers. This is because reading MSB requires two reference voltages while reding LSB requires single reference voltages.
+							</li>
+							<li>
+								The top half of the layers have low error rates than bottom half because of flash cell size varies across layers.
+							</li>
+							<li>
+								The observed pattern of error is consistent in another different chip as well.
+							</li>
+							<li>
+								Optimal Read Reference voltage vary across layers as well. The optimal reference voltages (Va and Vb) vary significanlty across layers but Vc does not change much. This is because process variation affects ER and P1 state while threshold voltage distribution of P2 and P3 states are controlled by ISPP that is similar across multiple layers.
+							</li>
+							<li>
+								Va and Vb are low for top half of layers than for bottom half.
+							</li>
+						</ul>
+					</li>
+					<li>
+						Early Retention Loss:
+						<ul>
+							<li>
+								For a larger retention analysis, they program 11 flash blocks in a chip and write a pseudo random data to each page of the block. The memory is worn out where each block is exposed to different PE cycles (each blocks from 0K to 10K, thus 11 blocks). It is left for 24 days at room temperature.
+							</li>
+							<li>
+								For measuring retention loss, RBER and the threshold voltage distribution is measured at 9 retention times from 7 minutes to 24 days. Only frst 72 flash pages in each bolcks are used in measurement so that other errors would not affect observation.
+							</li>
+							<li>
+								Observation is that retention rate changes very slowly  for planar NAND than 3D NAND. ALthough 3D has very less RBER initially, after 2 hours of retention time, it quickly outgrows planar RBER. RBER increases by the order of 10^4 in 3 hours and 10^6 in 11 days.
+							</li>
+							<li>
+								Retention Error flattens out after time in order of 10^7 seconds.
+							</li>
+							<li>
+								Early retention loss is caused by two possible reasons:
+								<ul>
+									<li>
+										Tunnel Oxide is thinner in 3D NAND for faster programming.(since it should act as insulator but since being thinner is susceptible to leakage).
+									</li>
+									<li>
+										Cells in the same bit line share the same charge trap layer. This causes the charge in one cell to quickly leak to another cell in the same bit line due to <i>Electron Diffusion</i>.
+									</li>
+								</ul>
+							</li>
+							<li>
+								Optimal Read reference voltage also changes with retention time.
+								<ul>
+									<li>
+										Va remains fairly constant while Vb and Vc decreases with increase in retention times.
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						Retention Interference
+						<ul>
+							<li>
+								This means that the speed of retention loss of a cell depends on the threshold voltage of a vertically adjacent neighbour cell (shared charge trap layer).
+							</li>
+							<li>
+								If two cells have different threshold voltages, charge can leak from cell with higher threshold voltage to the cell with a lower threshold voltage.
+							</li>
+							<li>
+								Same observation from retention loss is used to observe retention interference. 
+							</li>
+							<li>
+								However, only the neighbouring cells that are programmed before victim cells are used for interference correlation computation. Victim cells in ER state are also ignored because they are significantly affected by program interference even though they are programmed after neighbour cell. (These are done to remove noise due to program interference.)
+							</li>
+							<li>
+								For retention interference, all victim cells are grouped together based on their threshold voltage states and the states of neighboring cells. Then the shift in threshold voltage after 24-day retention time was compared.
+							</li>
+							<li>
+								The observation was that the change in reference voltage in terms of voltage steps shows correlation with the neighboring cell voltage.
+							</li>
+						</ul>
+					</li>
+					<li>
+						No evidence of program error was found in 3D NAND
+					</li>
+					<li>
+						PE cycling error is present in 3D NAND similar to planar NAND
+					</li>
+					<li>
+						3D NAND face less program interference than planar NAND.
+					</li>
+					<li>
+						Read disturb error is very weak so much so that it does not require any error mitigation.
+					</li>
+					<li>
+						LaVAR: Layer Variation Aware Reading
+						<ul>
+							<li>
+								to account for layer to layer process variation, how much should the reference voltage be offset? (instead of using a single reference voltage for entire block)
+							</li>
+							<li>
+								LaVAR learns the offset for each layer and records them in per chip table in SSD controller
+							</li>
+							<li>
+								uses this variation aware Vopt during read operation by reading appropriate voltage offset for the request from the per chip table that corrsponds to the layer of request.
+							</li>
+							<li>
+								since there are limited number of layers, this can be represented as a table between thet variation agnostic voltage and the optimal voltage for each layer
+							</li>
+							<li>
+								since the change in reference voltage follows similar pattern with PE cycles across different blocks, rigorous analysis of a single block should provide model for all blocks.
+							</li>
+							<li>
+								LaVAR uses read retry functionality in modern NAND flash chips to find variation aware Vopt (optimal read referece voltage).
+							</li>
+							<li>
+								Vc does not need to be changed while Va and Vb needs to be changed and the overhead is 2N bytes for N layers.
+							</li>
+						</ul>
+					</li>
+					<li>
+						LiRAID: Layer Interleaved RAID
+						<ul>
+							<li>
+								To tolerate chip to chip variation, RAID technique is used in modern SSDs. RAID in SSDs combine pages from multiple chips into a logical unit called a super group and uses one of the pages to store parity information. But they do not consider layer to layer variation
+							</li>
+							<li>
+								Instead of grouping pages in the same layer together in the same group, pages from different chips and different layers are grouped together so that new group has evenly distributed RBERs in LiRAID.
+							</li>
+							<li>
+								In a case with m chips in an SSD, each RAID group contains m pages one from each chip.
+							</li>
+							<li>
+								If there are n wordlines, then LiRAID groups MSB page of wordline 0 with  LSB page of word line n/m, MSB page of 2*n/m and so on, MSB page of wordline (m-2)*n/m, LSB page of (m-1)*n/m. Thus combines LSB and MSB pages and combines different layers in a group.
+							</li>
+						</ul>
+					</li>
+					<li>
+						ReMARL Retention Model Aware Reading:
+						<ul>
+							<li>
+								Retention loss occurs after programming a page. RBER of early loss is logarithm of the retention time which means majority of threshold voltage  shifts occurs shortly after the programming operation.
+							</li>
+							<li>
+								Idea here is to track the retention time and apply appropriate optimal read reference voltage.
+							</li>
+							<li>
+								Prediction of optimal Va, Vb and Vc are done. Va is not affected by retention time while Vb and Vc are modeled with retention time dependency (result obtained from above).
+							</li>
+							<li>
+								A sweeping read reference voltage learning is performed on one of the block to learn the optimal read reference voltage to construct the model <i>online</i>
+							</li>
+							<li>
+								SSD controller must store the PE cycle count and the program time of each block.
+							</li>
+						</ul>
+					</li>
+					<li>
+						ReNAC: Retention Interference Aware Neighbour Cell Assisted Correction
+						<ul>
+							<li>
+								Data stored in vertically adjacent cell to predict the amount of retention interference on a victim cell.
+							</li>
+							<li>
+								A model is generated online for retention interference as a function of retention time and neighbour cells state.
+							</li>
+							<li>
+								A read offset is computed for each block and is applied to the read threshold voltage.
+							</li>
+							<li>
+								(This method did not yield significant improvement)
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</p>
+		</div>
+		<hr>
+
+	<button type="button" class="collapsible"> <a name="mlcnandthresholdvoltage">Threshold Voltage Distribution in MLC NAND Flash Memory: Characterization, Analysis, and Modeling</a></button>
+		<div class="content">
+			<p>
+				<ul>
+					<li>
+						This paper uses <i>read retry</i> command in MLCs of 2Y nm technology for threshold voltage modeling
+					</li>
+					<li>
+						Experimental measurement based characterization of threshold voltage distribution present in some 2Y flash memory
+					</li>
+					<li>
+						For a flash cell with 2-bits, there are 2^2 or 4 states. This needs 2^2-1 or 3 read reference voltages, thus creating 4 regions of threshold voltage distribution.
+					</li>
+					<li>
+						During a read operation, the threshold voltage is a cells is iteratively compared to predefined read reference voltages until the upper and lower bound are identified to determine the n-bit stored value
+					</li>
+					<li>
+						In earlier flash design, read reference voltages are fixed in design time. But newer flash memories below 30 nm have a technique to address the distorted threshold voltage distribution. (Due to different reasons like PE cycling, retention loss, program disturb etc, the otherwise non-overlapping regions of voltage distributions might overlap or corss the fixed boundary. This may lead to value being misread).
+					</li>
+					<li>
+						Read retry allows the voltage to be dynamically adjusted to track changes in distributions.
+					</li>
+					<li>
+						Two new commands are required on the controller side:
+						<ul>
+							<li>
+								Set REF: sets the reference voltaage to a new value 
+							</li>
+							<li>
+								Get REF: checks the set value of the read reference voltage
+							</li>
+						</ul>
+					</li>
+					<li>
+						As the reference voltage can be finely tuned, we can divide the threshold voltage to multiple bins, and the values read can be changed.
+					</li>
+					<li>
+						Change in the threshold voltage due to PE cycling can also be done using the same technique.
+					</li>
+					<li>
+						For the 3D NAND chip at our disposal, the host controller issues the SET FEATURES (EFh) or SET FEATURES by LUN (D5h) command to feature address 89h with P1 subfeature set to a read retry option, as defined in that feature address. A new NAND array READ operation can now be performed.
+					</li>
+				</ul>
+			</p>
+		</div>
 </p>
 </div>
 
@@ -1274,6 +1649,9 @@
 					<li>
 						<a href="#maneas1">A Study of SSD Reliability in Large Scale Enterprise Storage Deployments</a>
 					</li>
+					<li>
+						<a href="#openssd">A Study of OpenSSD</a>
+					</li>
 				</ul>
 			</p>
 			<hr>
@@ -1329,6 +1707,32 @@
 			</div>
 
 			<hr>
+
+		<button type="button" class="collapsible"> <a name="openssd">A Study of OpenSSD</a></button>
+			<div class="content">
+				<p>
+					<ul>
+						<li>
+							The content is derived from <a href="http://www.openssd.io/">this link.</a> The tutorial on use of this platform is at <a href="https://github.com/Cosmos-OpenSSD/Cosmos-plus-OpenSSD/blob/master/doc/Cosmos%2B%20OpenSSD%202017%20Tutorial.pdf">this link</a>
+						</li>
+						<li>
+							It is a open source solid state drive project designed for research.
+						</li>
+						<li>
+							In addition to the software, they have a read hardware board called Cosmos OpenSSD platform (consisting Zynq platform).
+						</li>
+						<li>
+							The full design includes Controller Firmware, Controller Hardware along with other modules like Controller Processor and Performance Monitor.
+						</li>
+						<li>
+							Earlier version supported PCIe (AHCI) while the newer platform Cosmos+ supports NVMe interface.
+						</li>
+						<li>
+							BCH ECC implementation.
+						</li>
+					</ul>
+				</p>
+			</div>
 </p>
 </div>
 
